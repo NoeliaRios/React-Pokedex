@@ -1,0 +1,74 @@
+p {
+  margin: 0;
+}
+
+.Card {
+  background: #009688;
+  border-radius: 10px;
+  border: 2px solid rebeccapurple;
+}
+
+.Card__img {
+  text-align: center;
+}
+
+.Card__types {
+  display: flex;
+  justify-content: center;
+}
+
+.Card__type {
+  padding: 5px 30px;
+  margin: 10px;
+  border-radius: 5px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.Card__info {
+  margin-left: 10px;
+}
+
+.Card__data {
+  padding-bottom: 10px;
+}
+
+.Card__data .title {
+  font-weight: 700;
+}
+
+.sprite_img {
+  width: 100px;
+  height: 100px;
+}
+
+.card-body-wrapper {
+  margin: 0 auto;
+  width: 100%;
+  .card-name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: capitalize;
+    font-weight: 800;
+    h4 {
+      color: #222;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 10px 0;
+      text-transform: capitalize;
+    }
+    span {
+      font-weight: 300;
+      margin: 5px;
+      color: #666;
+    }
+  }
+  .card-img {
+    margin: 20px 0;
+    .sprite-wrapper {
+      width: 100%;
+    }
+  }
+}
