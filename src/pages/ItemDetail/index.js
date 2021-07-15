@@ -1,34 +1,55 @@
 import React, { useState, useEffect } from "react";
 import "./style.scss";
-import Box from "@material-ui/core/Box";
-import Container from "@material-ui/core/Container";
 import typeColors from "../../helpers/typeColours";
+import { useHistory, useLocation, useParams } from "react-router-dom";
+import { usePalette } from "react-palette";
+import Palette from "react-palette";
 
-function ItemDetail({ match }) {
-  console.log(match);
+function ItemDetail() {
+  const history = useHistory();
+  const { pokename } = useParams();
+  const location = useLocation();
+  const [item, setItem] = useState([]);
+  const [specieItem, setSpecieItem] = useState([]);
+  const [image_url, setImage_url] = useState("");
+
   useEffect(() => {
-    fetchItem();
+    fetchData(`https://pokeapi.co/api/v2/pokemon/${pokename}`, setItem);
+    fetchData(
+      `https://pokeapi.co/api/v2/pokemon-species/${pokename}`,
+      setSpecieItem
+    );
   }, []);
 
-  const [item, setItem] = useState([]);
+  async function fetchData(url, setter) {
+    const getData = await fetch(url);
+    const json = await getData.json();
+    setter(json);
+  }
+  setImage_url(item.sprites.other.dream_world.front_default);
 
-  const fetchItem = async () => {
-    const data = await fetch(`https://pokeapi.co/api/v2/pokemon${match.url}`);
-    const item = await data.json();
-    setItem(item);
-    console.log(item);
-  };
+  console.log(specieItem);
+  const { data, loading, error } = usePalette(image_url);
 
   return (
-    <Container className="container-wrapper">
-      <Box className="item-bod">
-        <Box className="detail-bod">
-          <Box className="detail-name">
-            <Box className="box-name">
+    <div className="container-wrapper">
+      <div>
+        <button
+          onClick={() => {
+            history.goBack();
+          }}
+        >
+          Go back
+        </button>
+      </div>
+      <div className="item-bod">
+        <div className="detail-bod">
+          <div className="detail-name">
+            <div className="box-name">
               <p>{item.name}</p>
               <span>#{item.id}</span>
-            </Box>
-            <Box>
+            </div>
+            <div>
               <div className="Card__types">
                 {item.types != null && item.types.length > 0 ? (
                   item.types.map((type, i) => {
@@ -46,27 +67,88 @@ function ItemDetail({ match }) {
                   <div>Loading...</div>
                 )}
               </div>
-            </Box>
-          </Box>
+            </div>
+          </div>
           {item.sprites == undefined ? (
             <div>Loading...</div>
           ) : (
-            <Box className="front-sprite-wrapper">
+            <div className="front-sprite-wrapper">
               <img src={item.sprites.other.dream_world.front_default} alt="" />
-            </Box>
+            </div>
           )}
-          <Box className="weight-data">
+          <div className="weight-data">
             <div className="table-wrapper">
               <div className="table-title">
                 <span>Height</span>
               </div>
-              <div className="table-content">{item.height}</div>
+              <div className="table-content">
+                <p>{item.height}m </p>
+              </div>
             </div>
             <div className="table-wrapper">
               <div className="table-title">
                 <span>Weight</span>
               </div>
-              <div className="table-content">{item.weight}</div>
+              <div className="table-content">{item.weight}kg</div>
+            </div>
+            <div className="table-wrapper">
+              <div className="table-title">
+                <span>Egg Groups</span>
+              </div>
+              <div className="table-content">
+                {specieItem.egg_groups != null &&
+                specieItem.egg_groups.length > 0 ? (
+                  specieItem.egg_groups.map((egg, i) => {
+                    return (
+                      <p className="table-content abilities" key={i}>
+                        {egg.name}
+                        {i < specieItem.egg_groups.length - 1 ? ",\u00A0" : ""}
+                      </p>
+                    );
+                  })
+                ) : (
+                  <div>Loading</div>
+                )}
+                {/* {loading ? (
+                  <div>Loading...</div>
+                ) : (
+                  specieItem.egg_groups.map((egg, i) => {
+                    return (
+                      <p className="table-content abilities" key={i}>
+                        {egg.name}
+                        {i < specieItem.egg_groups.length - 1 ? ",\u00A0" : ""}
+                      </p>
+                    );
+                  })
+                )} */}
+              </div>
+            </div>
+            <div className="table-wrapper">
+              <div className="table-title">
+                <span>Base Hapiness</span>
+              </div>
+              <div className="table-content">
+                {specieItem.base_happiness != null &&
+                specieItem.base_happiness.length > 0 ? (
+                  <div>Loading...</div>
+                ) : (
+                  <p>{specieItem.base_happiness}</p>
+                )}
+              </div>
+            </div>
+            <div className="table-wrapper">
+              <div className="table-title">
+                <span>Habitat</span>
+              </div>
+              <div className="table-content">
+                {specieItem.habitat == undefined ? (
+                  <div>Loading</div>
+                ) : (
+                  <p className="table-content abilities">
+                    {specieItem.habitat.name}
+                  </p>
+                )}
+              </div>
             </div>
             <div className="table-wrapper">
               <div className="table-title">
@@ -85,18 +167,38 @@ function ItemDetail({ match }) {
                 <div>Loading</div>
               )}
             </div>
-          </Box>
-        </Box>
-        <Box className="statistics-bod">
-          <Box className="description-wrapper">
+          </div>
+        </div>
+        <div className="statistics-bod">
+          <div className="description-wrapper">
             <p>{item.weight}</p>
-          </Box>
-          <Box className="attack-data">
-            <p>{item.name}</p>
-          </Box>
-        </Box>
-      </Box>
-    </Container>
+          </div>
+          <div className="attack-data">
+            {specieItem.evolves_from_species == undefined ? (
+              <div>Loading...</div>
+            ) : (
+              <p>Evolves from: {specieItem.evolves_from_species.name}</p>
+            )}
+          </div>
+          <div>
+            <h2>Stats</h2>
+            {item.stats != null && item.stats.length > 0 ? (
+              item.stats.map((stat, i) => {
+                return (
+                  <div key={i}>
+                    <h3>
+                      {stat.stat.name}: {stat.base_stat}
+                    </h3>
+                  </div>
+                );
+              })
+            ) : (
+              <h1>Loading...</h1>
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

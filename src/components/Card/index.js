@@ -11,7 +11,7 @@ function Card({ pokemon }) {
         <div className="sprite-wrapper">
           <img
             className="sprite_img"
-            src={pokemon.sprites.other.dream_world.front_default}
+            src={pokemon.sprites.other["official-artwork"].front_default}
             alt=""
           />
         </div>

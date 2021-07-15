@@ -1,8 +1,13 @@
-.logo-link {
-  text-decoration: none;
-  color: #fff;
-  .nav-wrapper {
-    background-color: lightgray;
+.nav-wrapper {
+  background-color: lightgray;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .logo-link {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+
     .logo-wrapper {
       display: flex;
     }
