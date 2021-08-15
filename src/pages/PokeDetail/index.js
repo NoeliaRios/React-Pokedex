@@ -48,8 +48,14 @@ function ItemDetail() {
     // background: `lighten(${data.vibrant}, 50%)`,
     background: `${data.vibrant}`,
   };
+  const gradient = {
+    background: `linear-gradient(130deg, rgba(255,255,255,0.5130427170868348) -3%, ${data.vibrant} 50%, ${data.vibrant} 5%`,
+  };
+  // const gradient = {
+  //   background: `linear-gradient(130deg, rgba(255,255,255,0.5130427170868348) 0%, ${data.vibrant} 100%)`,
+  // };
   return (
-    <div className="container-wrapper" style={lighten}>
+    <div className="container-wrapper" style={gradient}>
       {loading ? (
         <h1 style={{ textAlign: "center" }}>Loading...</h1>
       ) : (
@@ -66,59 +72,31 @@ function ItemDetail() {
               <NavigateBeforeIcon />
             </IconButton>
           </Box>
-          <div style={{ background: data.darkMuted }}>darkMuted</div>
-          <div style={{ background: data.darkVibrant }}>darkVibrant</div>
-          <div style={{ background: data.lightMuted }}>lightMuted</div>
-          <div style={{ background: data.lightVibrant }}>lightVibrant</div>
-          <div style={{ background: data.muted }}>muted</div>
-          <div style={{ background: data.vibrant }}>vibrant</div>
+
           <Box className="item-bod">
-            <Box className="detail-bod">
+            <Box className="detail-bod" height="100%">
               <Box className="detail-name">
                 <Box className="box-name">
                   <p>{item.name}</p>
                   <span>#{item.id}</span>
                 </Box>
-                <Box>
-                  <div className="Card__types">
-                    {item.types.map((type, i) => {
-                      return (
-                        <div
-                          key={i}
-                          className="Card__type"
-                          style={{
-                            backgroundColor: typeColors[type.type.name],
-                          }}
-                        >
-                          {type.type.name}
-                        </div>
-                      );
-                    })}
-                  </div>
-                </Box>
               </Box>
-              <Box className="front-sprite-wrapper">
+              {/* <Box className="front-sprite-wrapper">
                 <img
                   src={item.sprites.other["official-artwork"].front_default}
                   alt=""
                 />
-              </Box>
+              </Box> */}
               <Box className="weight-data">
-                <div className="table-wrapper">
-                  <div className="table-title">
-                    <span>Height</span>
-                  </div>
-                  <div className="table-content">
-                    <p>{item.height}m </p>
-                  </div>
-                </div>
-                <div className="table-wrapper">
-                  <div className="table-title">
-                    <span>Weight</span>
-                  </div>
-                  <div className="table-content">{item.weight}kg</div>
-                </div>
-                <div className="table-wrapper">
+                <p>
+                  Height: <span>{item.height}m </span>
+                </p>
+
+                <p>
+                  Weight: <span>{item.weight}kg</span>
+                </p>
+
+                {/* <div className="table-wrapper">
                   <div className="table-title">
                     <span>Egg Groups</span>
                   </div>
@@ -134,23 +112,27 @@ function ItemDetail() {
                       );
                     })}
                   </div>
-                </div>
-                <div className="table-wrapper">
+                </div> */}
+                {/* <div className="table-wrapper">
                   <div className="table-title">
                     <span>Base Hapiness</span>
                   </div>
                   <div className="table-content">
                     <p>{specieItem.base_happiness}</p>
                   </div>
-                </div>
-                <div className="table-wrapper">
+                </div> */}
+                {/* <div className="table-wrapper">
                   <div className="table-title">
                     <span>Habitat</span>
                   </div>
                   <div className="table-content">
-                    <p className="table-content abilities">
-                      {specieItem.habitat.name}
-                    </p>
+                    {specieItem.habitat === null ? (
+                      <p> No data </p>
+                    ) : (
+                      <p className="table-content abilities">
+                        {specieItem.habitat.name}
+                      </p>
+                    )}
                   </div>
                 </div>
                 <div className="table-wrapper">
@@ -165,10 +147,35 @@ function ItemDetail() {
                       </p>
                     );
                   })}
-                </div>
+                </div> */}
+              </Box>
+            </Box>
+            <Box className="picture-bod">
+              <Box className="front-sprite-wrapper">
+                <img
+                  src={item.sprites.other["official-artwork"].front_default}
+                  alt=""
+                />
               </Box>
             </Box>
             <Box className="statistics-bod">
+              <Box>
+                <div className="Card__types">
+                  {item.types.map((type, i) => {
+                    return (
+                      <div
+                        key={i}
+                        className="Card__type"
+                        style={{
+                          backgroundColor: typeColors[type.type.name],
+                        }}
+                      >
+                        {type.type.name}
+                      </div>
+                    );
+                  })}
+                </div>
+              </Box>
               <Box className="description-wrapper">
                 <h2>About</h2>
                 <p className="about-text">
@@ -183,8 +190,8 @@ function ItemDetail() {
                 )}
               </Box> */}
 
-              <Box>
-                <h2>Stats</h2>
+              <Box className="stats-name">
+                <h2>Base Stats</h2>
                 {item.stats.map((stat, i) => {
                   return (
                     // <Box key={i}>
