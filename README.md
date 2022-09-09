@@ -10,4 +10,4 @@ You can read a brief description and get a glimpse of the top carasteristics of 
 
 ![bulbasaur-desc](https://user-images.githubusercontent.com/44882277/189420060-5d3a738f-3df9-44f7-bda0-5c3f0a8d73df.jpg)
 
-You can check it out [here](https://noeliarios.github.io/pokedex/)
+I'm still working on this project but you can check it out [here!](https://noeliarios.github.io/React-Pokedex/).
