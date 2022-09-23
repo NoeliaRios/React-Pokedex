@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/pokedex/static/css/main.18406365.chunk.css",
-    "main.js": "/pokedex/static/js/main.74301565.chunk.js",
-    "main.js.map": "/pokedex/static/js/main.74301565.chunk.js.map",
-    "runtime-main.js": "/pokedex/static/js/runtime-main.f4a9c9c3.js",
-    "runtime-main.js.map": "/pokedex/static/js/runtime-main.f4a9c9c3.js.map",
-    "static/js/2.f5a34a22.chunk.js": "/pokedex/static/js/2.f5a34a22.chunk.js",
-    "static/js/2.f5a34a22.chunk.js.map": "/pokedex/static/js/2.f5a34a22.chunk.js.map",
-    "static/js/3.9dccdb90.chunk.js": "/pokedex/static/js/3.9dccdb90.chunk.js",
-    "static/js/3.9dccdb90.chunk.js.map": "/pokedex/static/js/3.9dccdb90.chunk.js.map",
-    "index.html": "/pokedex/index.html",
-    "static/css/main.18406365.chunk.css.map": "/pokedex/static/css/main.18406365.chunk.css.map",
-    "static/js/2.f5a34a22.chunk.js.LICENSE.txt": "/pokedex/static/js/2.f5a34a22.chunk.js.LICENSE.txt",
-    "static/media/pokeball.e57f7ae6.svg": "/pokedex/static/media/pokeball.e57f7ae6.svg"
+    "main.css": "/React-Pokedex/static/css/main.a53e5e69.chunk.css",
+    "main.js": "/React-Pokedex/static/js/main.4e18e85b.chunk.js",
+    "main.js.map": "/React-Pokedex/static/js/main.4e18e85b.chunk.js.map",
+    "runtime-main.js": "/React-Pokedex/static/js/runtime-main.5f7e5269.js",
+    "runtime-main.js.map": "/React-Pokedex/static/js/runtime-main.5f7e5269.js.map",
+    "static/js/2.3a38e552.chunk.js": "/React-Pokedex/static/js/2.3a38e552.chunk.js",
+    "static/js/2.3a38e552.chunk.js.map": "/React-Pokedex/static/js/2.3a38e552.chunk.js.map",
+    "static/js/3.b59c2f09.chunk.js": "/React-Pokedex/static/js/3.b59c2f09.chunk.js",
+    "static/js/3.b59c2f09.chunk.js.map": "/React-Pokedex/static/js/3.b59c2f09.chunk.js.map",
+    "index.html": "/React-Pokedex/index.html",
+    "static/css/main.a53e5e69.chunk.css.map": "/React-Pokedex/static/css/main.a53e5e69.chunk.css.map",
+    "static/js/2.3a38e552.chunk.js.LICENSE.txt": "/React-Pokedex/static/js/2.3a38e552.chunk.js.LICENSE.txt",
+    "static/media/pokeball.e57f7ae6.svg": "/React-Pokedex/static/media/pokeball.e57f7ae6.svg",
+    "static/media/slowpoke-loading.3384d576.gif": "/React-Pokedex/static/media/slowpoke-loading.3384d576.gif"
   },
   "entrypoints": [
-    "static/js/runtime-main.f4a9c9c3.js",
-    "static/js/2.f5a34a22.chunk.js",
-    "static/css/main.18406365.chunk.css",
-    "static/js/main.74301565.chunk.js"
+    "static/js/runtime-main.5f7e5269.js",
+    "static/js/2.3a38e552.chunk.js",
+    "static/css/main.a53e5e69.chunk.css",
+    "static/js/main.4e18e85b.chunk.js"
   ]
 }
