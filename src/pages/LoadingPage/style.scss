@@ -1,0 +1,26 @@
+.loadingBox{
+//     background-color: #00ac8d;
+// background-image: linear-gradient(45deg, #00ac8d 0%, #ffffd0 100%);
+
+    .loadingWrapper{
+            margin: auto;
+    height: 100vh;
+    display: flex;
+    width: 30vw;
+        img{
+            width: 100%;
+            height: auto;
+            margin: auto;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .loadingBox{
+    .loadingWrapper{
+        
+    width: 80vw;
+       
+    }
+}
+}

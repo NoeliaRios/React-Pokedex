@@ -1,11 +1,12 @@
 {
-  "homepage": "https://noeliarios.github.io/pokedex",
-  "name": "pokedex",
+  "homepage": "https://noeliarios.github.io/React-Pokedex",
+  "name": "React-Pokedex",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^5.0.0-alpha.37",
+    "@mui/icons-material": "^5.10.6",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",

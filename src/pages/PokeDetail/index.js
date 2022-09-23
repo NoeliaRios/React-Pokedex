@@ -8,6 +8,8 @@ import eraseArrow from "../../helpers/eraser";
 import { useHistory, useLocation, useParams } from "react-router-dom";
 import { usePalette } from "react-palette";
 import { getPokemon, getAllPokemon } from "../../services/allPokemon";
+import LoadingPage from "../../pages/LoadingPage";
+
 
 function ItemDetail() {
   const history = useHistory();
@@ -40,24 +42,21 @@ function ItemDetail() {
     fetchData();
   }, []);
 
-  console.log("color", data);
+  // console.log("color", data);
   const mystyle = {
     background: `linear-gradient(to right, ${data.vibrant}, ${data.darkVibrant})`,
   };
   const lighten = {
-    // background: `lighten(${data.vibrant}, 50%)`,
     background: `${data.vibrant}`,
   };
   const gradient = {
     background: `linear-gradient(130deg, rgba(255,255,255,0.5130427170868348) -3%, ${data.vibrant} 50%, ${data.vibrant} 5%`,
   };
-  // const gradient = {
-  //   background: `linear-gradient(130deg, rgba(255,255,255,0.5130427170868348) 0%, ${data.vibrant} 100%)`,
-  // };
+  
   return (
     <div className="container-wrapper" style={gradient}>
       {loading ? (
-        <h1 style={{ textAlign: "center" }}>Loading...</h1>
+        <LoadingPage/>
       ) : (
         <>
           <Box>
@@ -89,11 +88,11 @@ function ItemDetail() {
               </Box> */}
               <Box className="weight-data">
                 <p>
-                  Height: <span>{item.height}m </span>
+                  Height: <span>{(item.height)*10} cm </span>
                 </p>
 
                 <p>
-                  Weight: <span>{item.weight}kg</span>
+                  Weight: <span>{(item.weight)/10} kg</span>
                 </p>
 
                 {/* <div className="table-wrapper">

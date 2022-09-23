@@ -9,6 +9,8 @@ import Box from "@material-ui/core/Box";
 import IconButton from "@material-ui/core/IconButton";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import LoadingPage from "../../pages/LoadingPage";
+
 
 function Home() {
   const [pokemonData, setPokemonData] = useState([]);
@@ -60,8 +62,8 @@ function Home() {
     <>
       <Nav />
       <Container>
-        {loading ? (
-          <h1 style={{ textAlign: "center" }}>Loading...</h1>
+        {loading ? (        
+        <LoadingPage/>
         ) : (
           <>
             <Box>

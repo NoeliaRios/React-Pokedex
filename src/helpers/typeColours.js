@@ -17,6 +17,7 @@ const typeColors = {
   poison: "#b97fc9",
   rock: "#a38c21",
   water: "#4592c4",
+  psychic: "#7b398d",
 };
 
 export default typeColors;
